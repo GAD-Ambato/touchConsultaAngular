@@ -1,0 +1,23 @@
+
+    .contenedor {
+      position: relative;
+    }
+    
+    /* Pseudo-elemento para el fondo con opacidad */
+    .contenedor::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: url('/assets/ambato.jpg') no-repeat;
+      background-size: cover;
+      opacity: 0.2;
+      z-index: -1; /* Colocar detrás del contenido */
+    }
+    
+    /* Estilos para el contenido */
+    .contenido {
+      /* Otros estilos para el contenido si es necesario */
+    }

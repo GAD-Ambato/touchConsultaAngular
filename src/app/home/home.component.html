@@ -1,0 +1,284 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Cargando...</p>
+</ngx-spinner>
+<div class="row justify-content-center">
+  <div class="col-lg-3 col-md-10 col-8 my-4" style="text-align: center">
+    <button class="button w-100" (click)="touch()">Activar touch/teclado</button>
+  </div>
+</div>
+<form [formGroup]="miFormulario" (ngSubmit)="onSubmit()">
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-10 my-4" *ngIf="habilitatecladovirtual == false">
+      <div class="card w-100">
+        <div class="card-body">
+          <div class="row justify-content-center">
+            <div class="col-lg-12 col-md-12 col-10 my-2">
+              <h3 style="text-align: center; font-weight: 500">
+                Estados de Cuenta
+              </h3>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-11">
+              <div class="my-4">
+                <select
+                  class="form-select"
+                  aria-label="Default select example "
+                  (change)="seleccioneTipoDocumento($event)"
+                >
+                  <option disabled selected>TIPO DE DOCUMENTO</option>
+                  <option value="CEDULA">CEDULA</option>
+                  <option value="CIU">CIU</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-11">
+              <div class="my-2">
+                <input
+                  type="number"
+                  id="inputValue"
+                  formControlName="fcncedula"
+                  class="form-control"
+                  placeholder="Ingrese"
+                  aria-label="Ingrese"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-11 my-2">
+              <button
+                class="button w-100"
+                style="vertical-align: middle"
+                (click)="consultar()"
+              >
+                <span>Consultar </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="col-lg-4 col-10 my-4"
+      style="background-color: rgb(255, 255, 255)"
+      *ngIf="habilitatecladovirtual"
+    >
+      <div class="card w-100">
+        <div class="card-body">
+          <div class="row justify-content-center">
+            <div class="col-lg-12 col-md-12 col-10 my-4">
+              <h3 style="text-align: center; font-weight: 500">
+                Estados de Cuenta
+              </h3>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-11">
+              <div class="my-4">
+                <select
+                  class="form-select"
+                  aria-label="Default select example "
+                  (change)="seleccioneTipoDocumento($event)"
+                >
+                  <option disabled selected>TIPO DE DOCUMENTO</option>
+                  <option value="CEDULA">CEDULA</option>
+                  <option value="CIU">CIU</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-11">
+              <div class="my-2">
+                <input
+                  type="number"
+                  id="inputValue"
+                  formControlName="fcncedula"
+                  class="form-control"
+                  placeholder="Ingrese"
+                  aria-label="Ingrese"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="my-4">
+            <div class="row">
+              <div class="col-lg-4 col-4">
+                <button class="teclado" (click)="teclado(1)">1</button>
+              </div>
+              <div class="col-lg-4 col-4">
+                <button class="teclado" (click)="teclado(2)">2</button>
+              </div>
+              <div class="col-lg-4 col-4">
+                <button class="teclado" (click)="teclado(3)">3</button>
+              </div>
+            </div>
+          </div>
+          <div class="my-4">
+            <div class="row">
+              <div class="col-lg-4 col-4">
+                <button class="teclado" (click)="teclado(4)">4</button>
+              </div>
+              <div class="col-lg-4 col-4">
+                <button class="teclado" (click)="teclado(5)">5</button>
+              </div>
+              <div class="col-lg-4 col-4">
+                <button class="teclado" (click)="teclado(6)">6</button>
+              </div>
+            </div>
+          </div>
+          <div class="my-4">
+            <div class="row">
+              <div class="col-lg-4 col-4">
+                <button class="teclado" (click)="teclado(7)">7</button>
+              </div>
+              <div class="col-lg-4 col-4">
+                <button class="teclado" (click)="teclado(8)">8</button>
+              </div>
+              <div class="col-lg-4 col-4">
+                <button class="teclado" (click)="teclado(9)">9</button>
+              </div>
+            </div>
+          </div>
+          <div class="my-4">
+            <div class="row">
+              <div class="col-lg-4 col-4">
+                <button class="teclado" (click)="delete()">
+                  <p style="font-size: small; margin: auto">Borrar</p>
+                </button>
+              </div>
+              <div class="col-lg-4 col-4">
+                <button class="teclado" (click)="teclado(0)">0</button>
+              </div>
+              <div class="col-lg-4 col-4">
+                <button class="teclado" (click)="consultar2()">
+                  <p style="font-size: small; margin: auto">Consultar</p>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center p-4" *ngIf="aparecetotal">
+    <div
+      class="col-lg-4 col-8"
+      style="background-color: rgb(255, 255, 255, 0.9)"
+    >
+      <div class="card w-100" style="background-color: red; color: white">
+        <div class="card-body">
+          <h5 style="text-align: center">Total a pagar: $ {{ total.toFixed(2) }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center p-4" *ngIf="aparecetotal">
+    <div
+      class="col-lg-3 col-7"
+      style="background-color: rgb(255, 255, 255, 0.9)"
+    >
+      <button
+        class="button w-100"
+        style="text-align: center"
+        (click)="verDetalle()"
+      >
+        Ver detalles
+      </button>
+    </div>
+    <!-- <div
+      class="col-lg-3 col-5"
+      style="background-color: rgb(255, 255, 255, 0.9)"
+    >
+      <button
+        class="buttonPagar w-100"
+        style="vertical-align: middle"
+        (click)="pagar()"
+      >
+        <span>Pagar </span>
+      </button>
+    </div> -->
+    <div
+      class="col-lg-3 col-7"
+      style="background-color: rgb(255, 255, 255, 0.9)"
+    >
+      <button
+        class="button w-100"
+        style="vertical-align: middle"
+        (click)="nuevaConsulta()"
+      >
+        <span>Nueva Consulta </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="row justify-content-center p-4" *ngIf="apareceTabla">
+    <div
+      class="col-lg-8 col-10"
+      style="background-color: rgb(255, 255, 255, 0.9)"
+    >
+      <div class="table-responsive">
+        <table class="table align-middle">
+          <thead>
+            <tr>
+              <th scope="col">Impuesto</th>
+              <th scope="col">Descripcion</th>
+
+              <th scope="col">Clave catastral</th>
+
+              <th scope="col">Año</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let contador of arrayRespuesta; let i = index">
+              <td>{{ contador["impuesto"] }}</td>
+              <td>{{ contador["descripcion"] }}</td>
+
+              <td>{{ contador["clavecatastral"] }}</td>
+
+              <td>{{ contador["anio"]! }}</td>
+              <td>{{ contador["total"] }}</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td style="font-weight: 500; font-size: 14pt">Total:</td>
+              <td style="font-weight: 500; font-size: 12pt">{{ total.toFixed(2) }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="row justify-content-center p-4" *ngIf="aparecetotal">
+          <div
+            class="col-lg-3 col-7"
+            style="background-color: rgb(255, 255, 255, 0.9)"
+          >
+            <button
+              class="button w-100"
+              style="text-align: center"
+              (click)="pagar()"
+            >
+              Pagar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
